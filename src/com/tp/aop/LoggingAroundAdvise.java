@@ -25,7 +25,9 @@ public class LoggingAroundAdvise
 		logger.debug("******");
 	} 
       
-    @Around("execution(* com.tp.service.*.*(..))")
+   // @Around("execution(* com.tp.service.*.*(..))")
+	// it will log all the methods which have loggable annotation.
+	@Around("@annotation(com.tp.aop.Loggable)")
     public Object logTimeMethod(ProceedingJoinPoint joinPoint) throws Throwable {
 		StopWatch stopWatch = new StopWatch();
 		stopWatch.start();
