@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 13, 2007 11:37:26 AM by Hibernate Tools 3.2.0.b9 -->
+<hibernate-mapping package="com.tp.domain">
+    
+    <class name="CourseDetails" table="course_details">
+        <id name="courseDetailID" type="long">
+            <column name="course_detail_ID" />
+            <generator class="identity" />
+        </id>
+
+            
+     
+        <property name="title" type="string">
+            <column name="title"/>
+        </property>
+        
+               
+        <property name="description" type="string">
+            <column name="description"/>
+        </property>
+        
+           <property name="level" type="string">
+            <column name="level"/>
+        </property>
+        
+            <property name="format" type="string">
+            <column name="format"/>
+        </property>
+        
+        <property name="status" type="boolean">
+            <column name="status"/>
+        </property>
+         
+        <many-to-one name="trainingDetail"  class="com.tp.domain.TrainingDetails" >
+             <column name="training_detail_ID" not-null="false" />
+        </many-to-one>
+     
+        
+        
+	</class>
+</hibernate-mapping>

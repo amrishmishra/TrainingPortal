@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 13, 2007 11:37:26 AM by Hibernate Tools 3.2.0.b9 -->
+<hibernate-mapping package="com.tp.domain">
+    
+    <class name="Member" table="member">
+        <id name="memberID" type="long">
+            <column name="MEMBER_ID" />
+            <generator class="identity" />
+        </id>
+
+        <many-to-one name="role" class="Roles" >
+            <column name="ROLE_id" not-null="true" />
+        </many-to-one>
+        
+        <many-to-one name="address"  class="Address"  cascade="all">
+             <column name="address_id"/>
+        </many-to-one>
+     
+        <property name="email" type="string">
+            <column name="EMAIL"/>
+        </property>
+        
+               
+        <property name="password" type="string">
+            <column name="PASSWORD"/>
+        </property>
+        
+        
+        <property name="phoneNo" type="string">
+            <column name="phone_no"/>
+        </property>
+        
+        <property name="mobileNo" type="string">
+            <column name="mobile_no"/>
+        </property>
+        
+        
+        <property name="createdDate" type="timestamp">
+            <column name="created_date"/>
+        </property>
+        
+           
+        <property name="modifiedDate" type="timestamp">
+            <column name="modified_date"/>
+        </property>
+        
+           
+        <property name="status" type="boolean">
+            <column name="status"/>
+        </property>
+        
+         <property name="imageLocation" type="string">
+            <column name="image_location"/>
+        </property>
+      
+           
+        <joined-subclass   name="Organization" table="organization_details">
+        	<key column="MEMBER_ID"/>
+	        <property name="website" column="website"/>
+	        <property name="description" column="description"/>
+	        <property name="name" column="name"/>
+        </joined-subclass>
+        
+        
+        <joined-subclass   name="IndividualMember" table="Individual_member_details">
+        	<key column="MEMBER_ID"/>
+	        <property name="expDetail" column="exp_detail"/>
+	        <property name="firstName" column="first_name"/>
+	        <property name="lastName" column="last_name"/>
+	        <property name="dateOfBirth" column="dob"/>
+        </joined-subclass>
+        
+        
+	</class>
+</hibernate-mapping>
