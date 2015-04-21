@@ -207,7 +207,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 													<form name="signupHomeForm" id="signupHomeForm" onsubmit="" action="/php/reg/main/signInAHR.php" method="POST">
 														<div class="btn-grp block-toggle" data-toggle="buttons" data-toggle-target="#tribute-form">
 															<label class="right inline">I am a </label>
-															<label class="btn btn-primary" style="margin-left:12px;>
+															<label class="btn btn-primary" style="margin-left:12px;">
 																<input type="radio" name="reg-type" value="show"> Trainer
 															</label>
 															<label class="btn btn-primary active">
