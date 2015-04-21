@@ -101,7 +101,7 @@ ul.nav{
   letter-spacing: 1px;
 }
 .nav > li > a span{
-  font-family: 'Georgia Italic';
+  /*font-family: 'Georgia Italic';*/
   font-style: italic;
   padding: 0;
   display: block;

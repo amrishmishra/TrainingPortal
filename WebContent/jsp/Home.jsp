@@ -91,22 +91,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<li><a href="contact.html">Contact Page</a></li>-->
 								</ul>
 							</li>
-							<li class="dropdown1"><a href="404.html">Technology<span>Apps, Internet & Gadgets</span></a>
-								<ul class="dropdown2">
-									<li><a href="lifestyle.html">Blog Page</a></li>
-									<li><a href="archives.html">Archive Page</a></li>
-									<li><a href="fullwidth.html">Full Width Page</a></li>
-									<li><a href="contact.html">Contact Page</a></li>
-								</ul>
-							</li>
-							<li class="dropdown1"><a href="lifestyle.html">Lifestyle Tips<span>Your Health & Happiness</span></a>
-								<ul class="dropdown2">
-									<li><a href="lifestyle.html">Blog Page</a></li>
-									<li><a href="archives.html">Archive Page</a></li>
-									<li><a href="fullwidth.html">Full Width Page</a></li>
-									<li><a href="contact.html">Contact Page</a></li>
-								</ul>
-							</li>
+							<%--<li class="dropdown1"><a href="404.html">Technology<span>Apps, Internet & Gadgets</span></a>--%>
+								<%--<ul class="dropdown2">--%>
+									<%--<li><a href="lifestyle.html">Blog Page</a></li>--%>
+									<%--<li><a href="archives.html">Archive Page</a></li>--%>
+									<%--<li><a href="fullwidth.html">Full Width Page</a></li>--%>
+									<%--<li><a href="contact.html">Contact Page</a></li>--%>
+								<%--</ul>--%>
+							<%--</li>--%>
+							<%--<li class="dropdown1"><a href="lifestyle.html">Lifestyle Tips<span>Your Health & Happiness</span></a>--%>
+								<%--<ul class="dropdown2">--%>
+									<%--<li><a href="lifestyle.html">Blog Page</a></li>--%>
+									<%--<li><a href="archives.html">Archive Page</a></li>--%>
+									<%--<li><a href="fullwidth.html">Full Width Page</a></li>--%>
+									<%--<li><a href="contact.html">Contact Page</a></li>--%>
+								<%--</ul>--%>
+							<%--</li>--%>
 							<!--<li class="dropdown1"><a href="celebrity.html">Entertainment<span>Movies, Music & Reviews</span></a>
 								<ul class="dropdown2">
 									<li><a href="lifestyle.html">Blog Page</a></li>
@@ -207,13 +207,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 													<form name="signupHomeForm" id="signupHomeForm" onsubmit="" action="/php/reg/main/signInAHR.php" method="POST">
 														<div class="btn-grp block-toggle" data-toggle="buttons" data-toggle-target="#tribute-form">
 															<label class="right inline">I am a </label>
-															<label class="btn btn-primary">
+															<label class="btn btn-primary" style="margin-left:12px;>
 																<input type="radio" name="reg-type" value="show"> Trainer
 															</label>
 															<label class="btn btn-primary active">
 																<input type="radio" name="reg-type" value="hide" checked="checked"> Trainee
 															</label>
 														</div>
+														<label class="right inline">Email ID</label>
+														<input type="text" class="textField" placeholder="Email ID" required="" name="signUpEmail" id="signup_email" tabindex="1" maxlength="50">
+
 														<!--<table>
                                                             <tbody>
                                                             <tr>
