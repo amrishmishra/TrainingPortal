@@ -18,6 +18,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.tp.domain.Login;
+import com.tp.domain.Member;
 import com.tp.service.LoginService;
 
 @Controller
@@ -37,27 +38,28 @@ public class LoginController
 	
 	  @RequestMapping(value = "signIn/", method = RequestMethod.POST)
 
-	 public @ResponseBody Boolean signIn(@RequestBody Login login )
+	 public @ResponseBody Member signIn(@RequestBody Member  member )
 	 {
-		  loginService.addMember(login);
-		 System.out.println("The object:::"+login);
-		 return true;
+		   loginService.addMember(member);
+		 System.out.println("The object:::"+member);
+		 return member;
 	 }
 	  
 	  @RequestMapping(value = "signUp/", method = RequestMethod.POST)
 
-		 public @ResponseBody Boolean signUp(@RequestBody Login login )
+	 public @ResponseBody Boolean signUp(@RequestBody Member member )
 		 {
-		  loginService.addMember(login);
-			 System.out.println("The sign up ;;;;object:::"+login);
+		  loginService.addMember(member);
+			 System.out.println("The sign up ;;;;object:::"+member);
 			 return true;
 		 }
 	  
 	  	@RequestMapping(value = "forgotPassword/", method = RequestMethod.POST)
-		 public @ResponseBody Boolean fogotPassword(@RequestBody Login login )
+		 public @ResponseBody Boolean fogotPassword(@RequestParam  String  emailId )
 		 {
-			 System.out.println("The object:::"+login);
+			// System.out.println("The object:::"+member);
 			 return true;
 		 }
+	  	
 
 }

@@ -8,18 +8,24 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import com.tp.dao.AbstractHibernateExtent;
+import com.tp.dao.BaseDao;
 import com.tp.dao.LoginDao;
+import com.tp.dao.TrainingDao;
 import com.tp.domain.Login;
 import com.tp.domain.Member ;
 import com.tp.domain.Roles;
+import com.tp.domain.TrainingDetails;
 
 
-@Repository("LoginDao")
-public class LoginDaoImpl  
-implements LoginDao {
+@Repository("TrainingDao")
+public class TrainingDaoImpl  
+implements TrainingDao {
 	 
 	@Autowired
 	private HibernateTemplate hibernateTemplate;
+	
+	@Autowired
+	private BaseDao baseDao;
 	
 	public Boolean addMember(Member  memberDetails)
 	{
@@ -28,12 +34,21 @@ implements LoginDao {
 		return  true;
 	}
 
+	 
+
 	@Override
-	public Roles getRole(Long roleID) {
-		// TODO Auto-generated method stub
-		Roles role = hibernateTemplate.get(Roles.class,roleID);
-		System.out.println("Hte ::::"+role);
-		return role;
+	public Long addTraining(TrainingDetails trainingDetails) {
+
+		baseDao.saveDomainObject(trainingDetails, TrainingDetails.class);
+		
+		return trainingDetails.getTrainingDetailId();
+	}
+
+	@Override
+	public TrainingDetails getTrainingdeDetail(Long trainingID) {
+	 
+		TrainingDetails trainingDetailObject =(TrainingDetails) baseDao.getDomainOjbect(trainingID, TrainingDetails.class);
+		return trainingDetailObject;
 	}
 	
 }

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 13, 2007 11:37:26 AM by Hibernate Tools 3.2.0.b9 -->
+<hibernate-mapping package="com.tp.domain">
+    
+    <class name="TrainingDetails" table="training_DETAILS">
+        <id name="trainingDetailId" type="long">
+            <column name="training_detail_id" />
+            <generator class="identity" />
+        </id>
+
+        <property name="title" type="string">
+            <column name="title"/>
+        </property>
+        
+               
+        <property name="description" type="string">
+            <column name="description"/>
+        </property>
+        
+           <property name="startDate" type="timestamp">
+            <column name="start_date"/>
+        </property>
+        
+            <property name="endDate" type="timestamp">
+            <column name="end_date"/>
+        </property>
+        
+        <property name="duration" type="long">
+            <column name="duration"/>
+        </property>
+        
+        <property name="createdDate" type="timestamp">
+            <column name="created_date"/>
+        </property>
+        
+           
+        <property name="modifiedDate" type="timestamp">
+            <column name="modified_date"/>
+        </property>
+        
+        <many-to-one name="industryType"  class="com.tp.domain.IndustryType"/>
+              
+   
+          
+	</class>
+</hibernate-mapping>
