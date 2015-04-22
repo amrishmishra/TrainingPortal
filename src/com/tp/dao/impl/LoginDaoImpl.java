@@ -1,16 +1,16 @@
 package com.tp.dao.impl;
 
 
+import java.util.List;
+
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Expression;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 
-import com.tp.dao.AbstractHibernateExtent;
 import com.tp.dao.LoginDao;
-import com.tp.domain.Login;
-import com.tp.domain.Member ;
+import com.tp.domain.Member;
 import com.tp.domain.Roles;
 
 
@@ -21,19 +21,31 @@ implements LoginDao {
 	@Autowired
 	private HibernateTemplate hibernateTemplate;
 	
-	public Boolean addMember(Member  memberDetails)
+	public Member addMember(Member  memberDetails)
 	{
 		hibernateTemplate.save(memberDetails);
-		System.out.println("The login Object :"+memberDetails);
-		return  true;
+		return  memberDetails;
 	}
 
 	@Override
 	public Roles getRole(Long roleID) {
-		// TODO Auto-generated method stub
 		Roles role = hibernateTemplate.get(Roles.class,roleID);
-		System.out.println("Hte ::::"+role);
 		return role;
+	}
+	
+	public Member getMemberByEmailId(String emailId)
+	{
+		DetachedCriteria criteria = DetachedCriteria.forClass(Member.class);
+		criteria.add(Expression.eq("email", emailId));
+		List<Member> members = hibernateTemplate.findByCriteria(criteria);
+		if(null != members && !members.isEmpty())
+		{
+			return members.get(0);
+		}
+		else
+		{	
+			return null;
+		}
 	}
 	
 }

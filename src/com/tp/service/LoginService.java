@@ -7,7 +7,9 @@ import com.tp.domain.Roles;
 
 public interface LoginService {
 	 
-	public Boolean addMember(Member  member);
+	public Member addMember(Member  member);
 	
 	public Roles getRole(Long roleID);
+	
+	public Member getMemberByEmailId(String emailId);
 }

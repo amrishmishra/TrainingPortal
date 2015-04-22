@@ -10,7 +10,7 @@
             <generator class="identity" />
         </id>
 
-        <many-to-one name="role" class="Roles" >
+        <many-to-one name="role" class="Roles"  lazy="false">
             <column name="ROLE_id" not-null="true" />
         </many-to-one>
         
