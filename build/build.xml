@@ -31,6 +31,7 @@
 			<delete file="${appserver.deploy.dir}/${ant.project.name}.war"/>
 			<delete dir="${appserver.deploy.dir}/${exploded.war.name}"/>
 			<delete file="${appserver.deploy.dir}/${ant.project.name}.ear"/>
+			<delete dir="${project.home}/WebContent/WEB-INF/classes"/>
 			<mkdir dir="${project.home}/WebContent/WEB-INF/classes"/>
 		</target>
 
@@ -39,7 +40,7 @@
 			<javac srcdir="${source.dir}" destdir="${project.home}/WebContent/WEB-INF/classes" debug="${debug}">
 				<classpath refid="project.classpath"/>
 			</javac>
-			<copy todir="${project.home}/WebContent/WEB-INF/classes">
+			<copy todir="${project.home}/WebContent/WEB-INF/classes"  overwrite="true">
 				<fileset dir="${source.dir}">
 					<include name="**/*.xml"/>
 					<include name="**/*.properties"/>
