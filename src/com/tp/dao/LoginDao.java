@@ -9,7 +9,9 @@ import com.tp.domain.Roles;
 @Repository("LoginDao")
 public interface LoginDao {
 	 
-	public Boolean addMember(Member  memberDetails);
+	public Member addMember(Member  memberDetails);
 
 	public Roles getRole(Long roleID);
+	
+	public Member getMemberByEmailId(String emailId);
 }
