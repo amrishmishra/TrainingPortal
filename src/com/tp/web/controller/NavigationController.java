@@ -31,12 +31,25 @@ public class NavigationController
 
 	//navigate to Home page. 
     @RequestMapping(value = "/home", method = RequestMethod.GET)
-	public String getPerson() {
+	public String getHomePage() {
 		logger.debug("Navigating to Home page");
 		// This will resolve to /WEB-INF/jsp/Home.jsp
 		return "Home";
 	}
-	  
+
+    @RequestMapping(value = "/explore", method = RequestMethod.GET)
+	public String getExplorePage() {
+		logger.debug("Navigating to Explore page");
+		// This will resolve to /WEB-INF/jsp/Home.jsp
+		return "Explore";
+	}
+
+    @RequestMapping(value = "/signUpPopup", method = RequestMethod.GET)
+	public String getSignupPopup() {
+		logger.debug("Navigating to Signup Popup");
+		// This will resolve to /WEB-INF/jsp/Home.jsp
+		return "SignupPopup";
+	}
 	 
 
 }

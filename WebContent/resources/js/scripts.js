@@ -21,6 +21,18 @@ jQuery(document).ready(function ($) {
 	     
     });
     
+    $('.btn-primary').click(function(e) {
+    	if($(this).find('input[type="radio"]').attr('value') === 'show'){
+    		$(".btn-primary").removeClass('active');
+    		$(this).addClass('active');
+    		 
+    	}else{
+    		$(".btn-primary").removeClass('active');
+    		$(this).addClass('active');
+    	}
+		
+    });
+    
     $('.next').click(function(e) {
         e.preventDefault();
         
@@ -143,5 +155,25 @@ jQuery(document).ready(function ($) {
 		
 		
 	}
-
+	
+	
 });
+
+function openSignupPopup() {
+	var isTrainer = $('input[name=regtype]:checked').val();
+	if( !validateEmail($("#signup_email").val())) {
+		 alert("Invalid Email address! Please try again.");
+	}else{
+		$("#signupEmail").val($("#signup_email").val());
+		$('#signuWindow').dialog("open");
+		$('#signuWindow').css('display','block');
+		
+	}
+}
+function completeSignUp() {	
+	
+}
+function validateEmail(email) {
+	var expr = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+    return expr.test(email);
+}
