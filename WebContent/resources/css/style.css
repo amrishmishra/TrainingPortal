@@ -452,6 +452,7 @@ input[type=submit]{
   padding: 2% 8% 2% 8%;
   color: #E3E821;
   border-radius: 5px 20px 5px;
+  margin: 5px 0 0;
 }
 
 .signinComponent {
@@ -474,8 +475,11 @@ input[type=submit]{
   text-shadow: none;
   text-transform: none;
   font-weight: 400;
-  height: 32px;
-  line-height: 20px;
+  height: 25px;
+  line-height: 12px;
+  padding: 6px 8px;
+  width: 20%;
+  border-radius: 10px;
   border: none;
 }
 .signupHomeComponent .signupHomeForm .btn-grp label.btn-primary.active {
@@ -485,6 +489,7 @@ input[type=submit]{
 }
 
 .signupHomeComponent h3 {
+
   color: #444444;
   font-size: 25px;
   font-weight: bold;
@@ -493,6 +498,16 @@ input[type=submit]{
   font-family: 'Georgia Italic';
   /*font-style: italic;*/
   position:relative;
+}
+.signupHomeComponent h3:after {
+  content: '';
+  background: url(../images/strip3.png) repeat 0px 0px;
+  position: absolute;
+  display: block;
+  height: 10px;
+  top: 59%;
+  left: 35%;
+  width: 69%;
 }
 
 .signinForm {
@@ -535,6 +550,12 @@ content: '';
   border: 1px solid #CBCBCB;
   text-align: center;
   padding: 11em 0;
+}
+
+.ui-dialog{
+  left: 59%;
+  top: 30%;
+  width: 400px;
 }
 .sponsors h3 {
   color: #444444;

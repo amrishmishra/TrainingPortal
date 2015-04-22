@@ -159,21 +159,3 @@ jQuery(document).ready(function ($) {
 	
 });
 
-function openSignupPopup() {
-	var isTrainer = $('input[name=regtype]:checked').val();
-	if( !validateEmail($("#signup_email").val())) {
-		 alert("Invalid Email address! Please try again.");
-	}else{
-		$("#signupEmail").val($("#signup_email").val());
-		$('#signuWindow').dialog("open");
-		$('#signuWindow').css('display','block');
-		
-	}
-}
-function completeSignUp() {	
-	
-}
-function validateEmail(email) {
-	var expr = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-    return expr.test(email);
-}

@@ -16,15 +16,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- css -->
 <link rel="stylesheet" href="../resources/css/style.css" type="text/css" media="all" />
 <!--// css -->
+<!-- JQuery -->
 <script src="../resources/js/jquery-1.9.1.min.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  
 <!--fonts-->
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 <!--/fonts-->
 <!-- dropdown -->
 <script src="../resources/js/jquery.easydropdown.js"></script>
 
+<!-- 
 <script src="../resources/js/jquery-ui.js"></script>
-<script src="../resources/js/jquery-ui.min.js"></script>
+<script src="../resources/js/jquery-ui.min.js"></script> -->
 
 <link href="../resources/css/nav.css" rel="stylesheet" type="text/css" media="all"/>
 <script src="../resources/js/scripts.js" type="text/javascript"></script>
@@ -50,9 +56,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 				});
 				
-				$("#signUpSubmit").click(function(event){		
-					openSignupPopup();
-				});
 			});
 		</script>
 <!-- slider -->
@@ -67,6 +70,134 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     });
   </script>
  
+<!-- Popup related Style and scripts -->
+<style>
+    /* body { font-size: 62.5%; }
+    label, input { display:block; }
+    input.text { margin-bottom:12px; width:95%; padding: .4em; } */
+    fieldset { padding:0; border:0; margin-top:25px; }
+    h1 { font-size: 1.2em; margin: .6em 0; }
+    div#users-contain { width: 350px; margin: 20px 0; }
+    div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
+    div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
+    .ui-dialog .ui-state-error { padding: .3em; }
+    .validateTips { border: 1px solid transparent; padding: 0.3em; }
+  </style>
+  <script>
+  $(function() {
+
+	   
+    var dialog, form,
+ 
+      // From http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state-%28type=email%29
+      emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
+      name = $( "#signupName" ),
+      email = $( "#signupEmail" ),
+      password = $( "#signupPassword" ),
+      phone = $("signupPhone"),
+      allFields = $( [] ).add( name ).add( email ).add( password ).add(phone),
+      tips = $( ".validateTips" );
+ 
+    $("#signUpSubmit").click(function(event){		
+    	var isTrainer = $('input[name=regtype]:checked').val();
+		if( !validateEmail($("#signup_email").val())) {
+			 alert("Invalid Email address! Please try again.");
+		}else{
+			$("#signupEmail").val($("#signup_email").val());
+			dialog.dialog( "open" );
+		}
+	});
+	function completeSignUp() {	
+		
+	}
+	function validateEmail(email) {
+		var expr = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+	    return expr.test(email);
+	}
+	
+    function updateTips( t ) {
+      tips
+        .text( t )
+        .addClass( "ui-state-highlight" );
+      setTimeout(function() {
+        tips.removeClass( "ui-state-highlight", 1500 );
+      }, 500 );
+    }
+ 
+    function checkLength( o, n, min, max ) {
+      if ( o.val().length > max || o.val().length < min ) {
+        o.addClass( "ui-state-error" );
+        updateTips( "Length of " + n + " must be between " +
+          min + " and " + max + "." );
+        return false;
+      } else {
+        return true;
+      }
+    }
+ 
+    function checkRegexp( o, regexp, n ) {
+      if ( !( regexp.test( o.val() ) ) ) {
+        o.addClass( "ui-state-error" );
+        updateTips( n );
+        return false;
+      } else {
+        return true;
+      }
+    }
+ 
+    function addUser() {
+      var valid = true;
+      allFields.removeClass( "ui-state-error" );
+ 
+      valid = valid && checkLength( name, "username", 3, 16 );
+      valid = valid && checkLength( email, "email", 6, 80 );
+      valid = valid && checkLength( password, "password", 5, 16 );
+      valid = valid && checkLength( phone, "phone", 10, 10);
+ 
+      valid = valid && checkRegexp( name, /^[a-z]([0-9a-z_\s])+$/i, "Username may consist of a-z, 0-9, underscores, spaces and must begin with a letter." );
+      valid = valid && checkRegexp( email, emailRegex, "eg. ui@jquery.com" );
+      valid = valid && checkRegexp( password, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
+      valid = valid && checkRegexp(phone, /^(\+?1-?)?(\([2-9]\d{2}\)|[2-9]\d{2})-?[2-9]\d{2}-?\d{4}$/, "Please provide valid contact number.");
+      /* valid = valid && checkRegexp(phone, /^(?(\d{3}))?[- ]?(\d{3})[- ]?(\d{4})$/, "Please provide valid contact number."); */
+      
+ 
+      if ( valid ) {
+    	  alert("Registration Successful!")
+        /* $( "#users tbody" ).append( "<tr>" +
+          "<td>" + name.val() + "</td>" +
+          "<td>" + email.val() + "</td>" +
+          "<td>" + password.val() + "</td>" +
+        "</tr>" );
+        dialog.dialog( "close" ); */
+      }
+      return valid;
+    }
+ 
+    dialog = $( "#signupWindow" ).dialog({
+      autoOpen: false,
+      height: 300,
+      width: 350,
+      modal: true,
+      buttons: {
+        "Create an account": addUser,
+        Cancel: function() {
+          dialog.dialog( "close" );
+        }
+      },
+      close: function() {
+        form[ 0 ].reset();
+        allFields.removeClass( "ui-state-error" );
+      }
+    });
+ 
+    form = dialog.find( "form" ).on( "button", function( event ) {
+      event.preventDefault();
+      addUser();
+    });
+ 
+  });
+  </script>
+<!-- Popup related Style and scripts End -->
 <!-- slider -->
 </head>
 <body>
@@ -83,55 +214,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<span class="menu">MENU</span>
 						<ul class="nav banner-nav">
 							<li>06 Dec 2010</li>
-
 							<li class="dropdown1"><a href="explore">Explore<span>search your preferences</span></a>
-								<!--<ul class="dropdown2">
-									&lt;!&ndash;<li><a href="lifestyle.html">Blog Page</a></li>
-									<li><a href="archives.html">Archive Page</a></li>
-									<li><a href="fullwidth.html">Full Width Page</a></li>
-									<li><a href="contact.html">Contact Page</a></li>&ndash;&gt;
-								</ul>-->
-							</li>
 							<li class="dropdown1"><a href="#signinComponent">Sign up/Sign in<span>get your own account</span></a>
-								<%--<ul class="dropdown2">--%>
-									<%--<li><a href="#signinComponent">Sign In</a></li>--%>
-									<%--<li><a href="archives.html">Sign Up</a></li>--%>
-									<%--<!--<li><a href="fullwidth.html">Full Width Page</a></li>--%>
-									<%--<li><a href="contact.html">Contact Page</a></li>-->--%>
-								<%--</ul>--%>
-							</li>
-							<%--<li class="dropdown1"><a href="404.html">Technology<span>Apps, Internet & Gadgets</span></a>--%>
-								<%--<ul class="dropdown2">--%>
-									<%--<li><a href="lifestyle.html">Blog Page</a></li>--%>
-									<%--<li><a href="archives.html">Archive Page</a></li>--%>
-									<%--<li><a href="fullwidth.html">Full Width Page</a></li>--%>
-									<%--<li><a href="contact.html">Contact Page</a></li>--%>
-								<%--</ul>--%>
-							<%--</li>--%>
-							<%--<li class="dropdown1"><a href="lifestyle.html">Lifestyle Tips<span>Your Health & Happiness</span></a>--%>
-								<%--<ul class="dropdown2">--%>
-									<%--<li><a href="lifestyle.html">Blog Page</a></li>--%>
-									<%--<li><a href="archives.html">Archive Page</a></li>--%>
-									<%--<li><a href="fullwidth.html">Full Width Page</a></li>--%>
-									<%--<li><a href="contact.html">Contact Page</a></li>--%>
-								<%--</ul>--%>
-							<%--</li>--%>
-							<!--<li class="dropdown1"><a href="celebrity.html">Entertainment<span>Movies, Music & Reviews</span></a>
-								<ul class="dropdown2">
-									<li><a href="lifestyle.html">Blog Page</a></li>
-									<li><a href="archives.html">Archive Page</a></li>
-									<li><a href="fullwidth.html">Full Width Page</a></li>
-									<li><a href="contact.html">Contact Page</a></li>
-								</ul>
-							</li>
-							<li class="dropdown1"><a href="travel.html">Travel News<span>Travel News, Guides & Tips</span></a>
-								<ul class="dropdown2">
-									<li><a href="lifestyle.html">Blog Page</a></li>
-									<li><a href="archives.html">Archive Page</a></li>
-									<li><a href="fullwidth.html">Full Width Page</a></li>
-									<li><a href="contact.html">Contact Page</a></li>
-								</ul>
-							</li>-->
 						</ul>
 						<script>
 							$("span.menu").click(function(){
@@ -247,31 +331,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										</div>
 									</div>
 									</div>
-								<div id="signupWindow" style="display: none;">
-									<h3>Sign-Up Form</h3>
-									<h5>just fill up a small form to register</h5>
-									<div class="col-md-8 signupform">
-										<form>
-											<label class="right inline">Register as :</label>
-											<input type="radio" name="regtype" value="yes"> Trainer
-											<input type="radio" name="regtype" value="no" checked="checked"> Trainee
-											
-											<input type="text" id="signupName" placeholder="Name" required="">
-											<input type="text" id="signupEmail" placeholder="Email" required="" >
-											<input type="password" id="signupPassword" placeholder="Password" required="">
-											<input type="password" id="signupPasswordConfirm" placeholder="Confirm Password" required="">
-											<input type="text" id="signupPhone" placeholder="10-digit Contact number" required="">
-											
-											
-											
-											<input id="registerButton" class="submitButton" type="button" value="Register">
-										</form>
+									
+									<div id="signupWindow" title="Registration Form">
+										<p class="validateTips">All form fields are required.</p>
+									  	<form>
+									    	<fieldset>
+										    	<label for="regtype" class="right inline">Register as :</label>
+												<input type="radio" name="regtype" value="yes"> Trainer
+												<input type="radio" name="regtype" value="no" checked="checked"> Trainee
+										      	<label for="signupName">Name</label>
+										      	<input type="text" name="signupName" id="signupName" placeholder="Ex: Jane Smith" class="text ui-widget-content ui-corner-all">
+										      	<label for="signupEmail">Email</label>
+										      	<input type="text" name="signupEmail" id="signupEmail" placeholder="Ex: jane@smith.com" class="text ui-widget-content ui-corner-all">
+										      	<label for="signupPassword">Password</label>
+										      	<input type="password" name="signupPassword" id="signupPassword" placeholder="Ex: 123456789" class="text ui-widget-content ui-corner-all">
+											 	<label for="signupPhone">Contact</label>
+										      	<input type="text" name="signupPhone" id="signupPhone" placeholder="10-digit Contact number" class="text ui-widget-content ui-corner-all">
+										      	
+										      	<!-- Allow form submission with keyboard without duplicating the dialog button -->
+										      	<input type="button" tabindex="-1" style="position:absolute; top:-1000px">
+									    	</fieldset>
+									  	</form>
 									</div>
-								</div>
+									
+								
 								<div class="col-md-4 banner-bottom-right" >
 
 								</div>
-								<div class="strip1"> </div>
 								<!-- banner-bottom-grids -->
 								<div class="banner-bottom-grids">
 									<!-- banner-bottom-left -->

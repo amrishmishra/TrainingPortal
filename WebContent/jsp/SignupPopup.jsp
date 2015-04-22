@@ -38,7 +38,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     	}
     	
     	function validateForm(){
-    		
+    		 
     	}
    </script>
 
@@ -63,5 +63,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<input id="registerButton" class="submitButton" type="button" value="Register">
 		</form>
 	</div>
+	<!-- <div id="signupWindow" title="Registration Form">
+		<p class="validateTips">All form fields are required.</p>
+	  	<form>
+	    	<fieldset>
+		    	<label for="regtype" class="right inline">Register as :</label>
+				<input type="radio" name="regtype" value="yes"> Trainer
+				<input type="radio" name="regtype" value="no" checked="checked"> Trainee
+		      	<label for="signupName">Name</label>
+		      	<input type="text" name="signupName" id="signupName" placeholder="Ex: Jane Smith" class="text ui-widget-content ui-corner-all">
+		      	<label for="signupEmail">Email</label>
+		      	<input type="text" name="signupEmail" id="signupEmail" placeholder="Ex: jane@smith.com" class="text ui-widget-content ui-corner-all">
+		      	<label for="signupPassword">Password</label>
+		      	<input type="password" name="signupPassword" id="signupPassword" placeholder="Ex: 123456789" class="text ui-widget-content ui-corner-all">
+			 	<label for="signupPhone">Contact</label>
+		      	<input type="text" name="signupPhone" id="signupPhone" placeholder="10-digit Contact number" class="text ui-widget-content ui-corner-all">
+		      	
+		      	Allow form submission with keyboard without duplicating the dialog button
+		      	<input type="button" value="Register" class="submitButton" tabindex="-1" style="position:absolute; top:-1000px">
+	    	</fieldset>
+	  	</form>
+	</div>
+	 -->
 </body>
 </html>
