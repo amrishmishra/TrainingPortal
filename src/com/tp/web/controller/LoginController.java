@@ -41,7 +41,7 @@ public class LoginController
 	 public @ResponseBody Member signIn(@RequestBody Member  member )
 	 {
 		   loginService.addMember(member);
-		 System.out.println("The object:::"+member);
+		 System.out.println("Here in signup The object:::"+member);
 		 return member;
 	 }
 	  
