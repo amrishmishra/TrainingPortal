@@ -22,10 +22,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--/fonts-->
 <!-- dropdown -->
 <script src="../resources/js/jquery.easydropdown.js"></script>
-
-<script src="../resources/js/jquery-ui.js"></script>
-<script src="../resources/js/jquery-ui.min.js"></script>
-
 <link href="../resources/css/nav.css" rel="stylesheet" type="text/css" media="all"/>
 <script src="../resources/js/scripts.js" type="text/javascript"></script>
 <!--js-->
@@ -41,17 +37,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			    });
 			   </script>	
 <!-- start-smoth-scrolling -->
-<!-- 		<script type="text/javascript" src="../resources/js/move-top.js"></script>
+		<!-- <script type="text/javascript" src="../resources/js/move-top.js"></script>
 		<script type="text/javascript" src="../resources/js/easing.js"></script> -->
 		<script type="text/javascript">
 			jQuery(document).ready(function($) {
 				$(".scroll").click(function(event){		
 					event.preventDefault();
 					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-				});
-				
-				$("#signUpSubmit").click(function(event){		
-					openSignupPopup();
 				});
 			});
 		</script>
@@ -66,7 +58,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       });
     });
   </script>
- 
 <!-- slider -->
 </head>
 <body>
@@ -76,15 +67,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!-- container -->
 			<div class="container">
 				<div class="head-logo">
-					<a href="home"><img src="../resources/images/logo.png" alt="" /></a>
+					<a href="index.html"><img src="../resources/images/logo.png" alt="" /></a>
 				</div>
 				<div class="logo-right">
 					<div class="banner-top">
 						<span class="menu">MENU</span>
 						<ul class="nav banner-nav">
 							<li>06 Dec 2010</li>
-
-							<li class="dropdown1"><a href="explore">Explore<span>search your preferences</span></a>
+							
+							<li class="dropdown1"><a href="home">Home<span>   </span></a>
 								<!--<ul class="dropdown2">
 									&lt;!&ndash;<li><a href="lifestyle.html">Blog Page</a></li>
 									<li><a href="archives.html">Archive Page</a></li>
@@ -213,14 +204,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<div class="signupHomeForm">
 												<h3>Create A Free Account</h3>
 												<div class="signupHomeForm">
-													<form name="signupHomeForm" id="signupHomeForm">
-														<div class="btn-grp block-toggle" data-toggle="buttons">
+													<form name="signupHomeForm" id="signupHomeForm" onsubmit="" action="/php/reg/main/signInAHR.php" method="POST">
+														<div class="btn-grp block-toggle" data-toggle="buttons" data-toggle-target="#tribute-form">
 															<label class="right inline">I am a </label>
 															<label class="btn btn-primary" style="margin-left:12px;">
-																<input type="radio" name="regtype" value="yes"> Trainer
+																<input type="radio" name="reg-type" value="show"> Trainer
 															</label>
 															<label class="btn btn-primary active">
-																<input type="radio" name="regtype" value="no" checked="checked"> Trainee
+																<input type="radio" name="reg-type" value="hide" checked="checked"> Trainee
 															</label>
 														</div>
 														<label class="right inline">Email ID</label>
@@ -240,34 +231,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                             </tr>
                                                             </tbody>
                                                         </table>-->
-														<input id="signUpSubmit" type="button" value="Continue" class="submitButton">
+														<input type="submit" value="Continue">
 													</form>
 												</div>
 											</div>
 										</div>
 									</div>
 									</div>
-								<div id="signupWindow" style="display: none;">
-									<h3>Sign-Up Form</h3>
-									<h5>just fill up a small form to register</h5>
-									<div class="col-md-8 signupform">
-										<form>
-											<label class="right inline">Register as :</label>
-											<input type="radio" name="regtype" value="yes"> Trainer
-											<input type="radio" name="regtype" value="no" checked="checked"> Trainee
-											
-											<input type="text" id="signupName" placeholder="Name" required="">
-											<input type="text" id="signupEmail" placeholder="Email" required="" >
-											<input type="password" id="signupPassword" placeholder="Password" required="">
-											<input type="password" id="signupPasswordConfirm" placeholder="Confirm Password" required="">
-											<input type="text" id="signupPhone" placeholder="10-digit Contact number" required="">
-											
-											
-											
-											<input id="registerButton" class="submitButton" type="button" value="Register">
-										</form>
-									</div>
-								</div>
 								<div class="col-md-4 banner-bottom-right" >
 
 								</div>

@@ -53,7 +53,8 @@ body a {
 }
 .header-bottom{
 	background:#2c2c2c;
-	padding: 3em 0 8em;
+	/*padding: 3em 0 8em;  older code*/
+    padding: 1em 0 7em;
 }
 .head-logo{
 	float:left;
@@ -444,6 +445,15 @@ input[type=submit]{
   color: #E3E821;
   border-radius: 5px 20px 5px;
 }
+
+
+.submitButton{
+  background-color: #444444;
+  padding: 2% 8% 2% 8%;
+  color: #E3E821;
+  border-radius: 5px 20px 5px;
+}
+
 .signinComponent {
   margin-top: -9%;
 }
@@ -452,6 +462,7 @@ input[type=submit]{
 }
 .signupHomeForm{
   width: 100%;
+  margin-top: -0.8%;
 }
 
 .signupHomeComponent .signupHomeForm .btn-grp{
