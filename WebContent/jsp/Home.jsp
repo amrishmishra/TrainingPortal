@@ -94,7 +94,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       name = $( "#signupName" ),
       email = $( "#signupEmail" ),
       password = $( "#signupPassword" ),
-      phone = $("signupPhone"),
+      phone = $("#signupPhone"),
       allFields = $( [] ).add( name ).add( email ).add( password ).add(phone),
       tips = $( ".validateTips" );
  
@@ -127,8 +127,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     function checkLength( o, n, min, max ) {
       if ( o.val().length > max || o.val().length < min ) {
         o.addClass( "ui-state-error" );
-        updateTips( "Length of " + n + " must be between " +
-          min + " and " + max + "." );
+        if(min==max){
+        	updateTips( "Length of " + n + " must be " + min + "." );
+        }else{
+        	updateTips( "Length of " + n + " must be between " +
+          		min + " and " + max + "." );
+        }
         return false;
       } else {
         return true;
@@ -149,15 +153,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       var valid = true;
       allFields.removeClass( "ui-state-error" );
  
-      valid = valid && checkLength( name, "username", 3, 16 );
-      valid = valid && checkLength( email, "email", 6, 80 );
-      valid = valid && checkLength( password, "password", 5, 16 );
-      valid = valid && checkLength( phone, "phone", 10, 10);
+      valid = valid && checkLength( name, "Username", 3, 16 );
+      valid = valid && checkLength( email, "Email", 6, 80 );
+      valid = valid && checkLength( password, "Password", 5, 16 );
+      valid = valid && checkLength( phone, "Contact Number", 10, 10);
  
       valid = valid && checkRegexp( name, /^[a-z]([0-9a-z_\s])+$/i, "Username may consist of a-z, 0-9, underscores, spaces and must begin with a letter." );
       valid = valid && checkRegexp( email, emailRegex, "eg. ui@jquery.com" );
       valid = valid && checkRegexp( password, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
-      valid = valid && checkRegexp(phone, /^(\+?1-?)?(\([2-9]\d{2}\)|[2-9]\d{2})-?[2-9]\d{2}-?\d{4}$/, "Please provide valid contact number.");
+      valid = valid && checkRegexp( phone, /^(\+?1-?)?(\([2-9]\d{2}\)|[2-9]\d{2})-?[2-9]\d{2}-?\d{4}$/, "Please provide valid contact number.");
       /* valid = valid && checkRegexp(phone, /^(?(\d{3}))?[- ]?(\d{3})[- ]?(\d{4})$/, "Please provide valid contact number."); */
       
  
@@ -175,9 +179,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
  
     dialog = $( "#signupWindow" ).dialog({
       autoOpen: false,
-      height: 300,
-      width: 350,
+      height: 330,
+      width: 450,
       modal: true,
+      resizable: false,
+      draggable: false,
       buttons: {
         "Create an account": addUser,
         Cancel: function() {
@@ -336,18 +342,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<p class="validateTips">All form fields are required.</p>
 									  	<form>
 									    	<fieldset>
-										    	<label for="regtype" class="right inline">Register as :</label>
-												<input type="radio" name="regtype" value="yes"> Trainer
-												<input type="radio" name="regtype" value="no" checked="checked"> Trainee
-										      	<label for="signupName">Name</label>
-										      	<input type="text" name="signupName" id="signupName" placeholder="Ex: Jane Smith" class="text ui-widget-content ui-corner-all">
-										      	<label for="signupEmail">Email</label>
-										      	<input type="text" name="signupEmail" id="signupEmail" placeholder="Ex: jane@smith.com" class="text ui-widget-content ui-corner-all">
-										      	<label for="signupPassword">Password</label>
-										      	<input type="password" name="signupPassword" id="signupPassword" placeholder="Ex: 123456789" class="text ui-widget-content ui-corner-all">
-											 	<label for="signupPhone">Contact</label>
-										      	<input type="text" name="signupPhone" id="signupPhone" placeholder="10-digit Contact number" class="text ui-widget-content ui-corner-all">
-										      	
+									    		<table>
+									    			<tbody>
+									    				<tr>
+									    					<td><label for="regtype" class="right inline">Register as</label></td><td>&nbsp;&nbsp;&nbsp;</td>
+						    								<td>
+						    									<input type="radio" name="regtype" value="yes"> Trainer
+																<input type="radio" name="regtype" value="no" checked="checked"> Trainee
+						    								</td>
+									    				</tr>
+									    				<tr>
+									    					<td><label for="signupName">Name</label></td><td>&nbsp;&nbsp;&nbsp;</td>
+						    								<td><input type="text" name="signupName" id="signupName" placeholder="Ex: Jane Smith" class="text ui-widget-content ui-corner-all"></td>
+									    				</tr>
+									    				<tr>
+									    					<td><label for="signupEmail">Email</label></td><td>&nbsp;&nbsp;&nbsp;</td>
+						    								<td><input type="text" name="signupEmail" id="signupEmail" placeholder="Ex: jane@smith.com" class="text ui-widget-content ui-corner-all"></td>
+									    				</tr>
+									    				<tr>
+									    					<td><label for="signupPassword">Password</label></td><td>&nbsp;&nbsp;&nbsp;</td>
+						    								<td><input type="password" name="signupPassword" id="signupPassword" placeholder="Ex: 123456789" class="text ui-widget-content ui-corner-all"></td>
+									    				</tr>
+									    				<tr>
+									    					<td><label for="signupPhone">Contact</label></td><td>&nbsp;&nbsp;&nbsp;</td>
+						    								<td><input type="text" name="signupPhone" id="signupPhone" placeholder="10-digit Contact number" class="text ui-widget-content ui-corner-all"></td>
+									    				</tr>
+									    			</tbody>
+									    		</table>
 										      	<!-- Allow form submission with keyboard without duplicating the dialog button -->
 										      	<input type="button" tabindex="-1" style="position:absolute; top:-1000px">
 									    	</fieldset>
