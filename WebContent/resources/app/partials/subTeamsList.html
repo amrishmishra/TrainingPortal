@@ -1,0 +1,36 @@
+<table id="subteamSearchTable" class="subteamSearchTable TableView">
+
+  <thead>
+    <tr class="mobileViewHead">
+      <th class="mobileViewHeadTD">Team</th>
+      <th class="mobileViewHeadTD">Sub Team</th>
+      <th class="mobileViewHeadTD">Event</th>
+      <th class="mobileViewHeadTD"></th>
+    </tr>
+  </thead>
+  <tbody ng-repeat="team in teamsJSON">
+ 
+    <tr>
+      <td class="TableViewTD searchable">
+      </td>
+      <td class="TableViewTD searchable"><a href="{{ team.url }}" class="subTeamLink">{{ team.subTeamName }}</a></td>
+      <td class="TableViewTD searchable">
+      	<ul class="inline-list subteamList">
+      	
+      		<li class="event-dt"><a href="{{ team.eventUrl }}">{{ team.eventName }}</a></li>
+      		<li  class="event-dt">{{ team.formattedEventDate }} - {{ team.city }} {{ team.state }}</li>
+      	</ul>
+      </td>
+      <td class="TableViewTD"><a class="alert expand joinTeamLink" href="{{ team.registrationURL }}" target="_blank">JOIN</a></td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+

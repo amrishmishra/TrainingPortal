@@ -1,0 +1,22 @@
+<div ng-if="records && records.length > 0">
+<table class="leaderboard">
+  <tbody>
+  <tr ng-repeat="individual in records" class="teamsList">
+        <td class="progress">
+            <div class="fullbar" style="position: relative;">
+                <div class="bar topFundraiser" style="width: {{ individual.percent }};"></div>
+                <div class="username">
+                    <div ng-if="individual.url"><a target="_blank" href="{{ individual.url }}"></div>
+                    {{ individual.firstName }} {{ individual.lastName }}
+                    <div ng-if="individual.url"></a></div>
+                </div>
+            </div>
+        </td>
+        <td class="number money moneyRaisedLB">{{ individual.totalFund | currency : $ }}</td>
+    </tr>
+    <tr class="lastRow"><td class="lastupdated" colspan="5">Last Updated on {{ individual.batchCreatedDate }}.</td></tr>
+  </tbody>
+</table>
+</div>
+
+   

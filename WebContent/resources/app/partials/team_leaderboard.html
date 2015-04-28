@@ -1,0 +1,25 @@
+<div ng-if="records && records.length > 0">
+<table class="leaderboard">
+  <tbody>
+    <tr ng-repeat="team_leader in records" class="teamsList">
+        <td class="number rank"></td>
+        <td class="progress">
+            <div class="fullbar" style="position: relative;">
+                <div class="bar topFundraiser" style="width: {{ team_leader.percent }};"></div>
+                <div class="username">
+                    
+                    {{ team_leader.teamName }}
+                    
+                </div>
+            </div>
+        </td>
+        <td class="number money moneyRaisedLB">{{ team_leader.totalFund | currency : $}}</td>
+        <td class="walker"></td>
+        <td class="number count walkerCount">{{ team_leader.walkers }}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+    

@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Viewport a Magazine Category Flat Bootstarp responsive Website Template| Home :: w3layouts</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Viewport Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- bootstarp-css -->
+<link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<!--// bootstarp-css -->
+<!-- css -->
+<link rel="stylesheet" href="../css/style.css" type="text/css" media="all" />
+<!--// css -->
+<!-- JQuery -->
+<script src="../js/jquery-1.9.1.min.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  
+<!--fonts-->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+<!--/fonts-->
+<!-- dropdown -->
+<script src="../js/jquery.easydropdown.js"></script>
+
+<!-- 
+<script src="../js/jquery-ui.js"></script>
+<script src="../js/jquery-ui.min.js"></script> -->
+
+<link href="../css/nav.css" rel="stylesheet" type="text/css" media="all"/>
+<script src="../js/scripts.js" type="text/javascript"></script>
+<!--js-->
+<!--/js-->
+<script src="../js/easyResponsiveTabs.js" type="text/javascript"></script>
+		    <script type="text/javascript">
+			    $(document).ready(function () {
+			        $('#horizontalTab').easyResponsiveTabs({
+			            type: 'default', //Types: default, vertical, accordion           
+			            width: 'auto', //auto or any width like 600px
+			            fit: true   // 100% fit in a container
+			        });
+			    });
+			   </script>	
+<!-- start-smoth-scrolling -->
+<!-- 		<script type="text/javascript" src="../js/move-top.js"></script>
+		<script type="text/javascript" src="../js/easing.js"></script> -->
+		<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+				
+			});
+		</script>
+<!-- slider -->
+<script src="../js/responsiveslides.min.js"></script>
+<script>
+    // You can also use "$(window).load(function() {"
+    $(function () {
+      $("#slider").responsiveSlides({
+      	auto: true,
+        manualControls: '#slider3-pager',
+      });
+    });
+  </script>
+ 
+<!-- Popup related Style and scripts -->
+<style>
+    /* body { font-size: 62.5%; }
+    label, input { display:block; }
+    input.text { margin-bottom:12px; width:95%; padding: .4em; } */
+    fieldset { padding:0; border:0; margin-top:25px; }
+    h1 { font-size: 1.2em; margin: .6em 0; }
+    div#users-contain { width: 350px; margin: 20px 0; }
+    div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
+    div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
+    .ui-dialog .ui-state-error { padding: .3em; }
+    .validateTips { border: 1px solid transparent; padding: 0.3em; }
+  </style>
+  <script>
+  $(function() {
+
+	   
+    var dialog, form,
+ 
+      // From http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state-%28type=email%29
+      emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
+      name = $( "#signupName" ),
+      email = $( "#signupEmail" ),
+      password = $( "#signupPassword" ),
+      phone = $("#signupPhone"),
+      allFields = $( [] ).add( name ).add( email ).add( password ).add(phone),
+      tips = $( ".validateTips" );
+ 
+    $("#signUpSubmit").click(function(event){		
+    	var isTrainer = $('input[name=regtype]:checked').val();
+		if( !validateEmail($("#signup_email").val())) {
+			 alert("Invalid Email address! Please try again.");
+		}else{
+			$("#signupEmail").val($("#signup_email").val());
+			dialog.dialog( "open" );
+		}
+	});
+	function completeSignUp() {	
+		
+	}
+	function validateEmail(email) {
+		var expr = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+	    return expr.test(email);
+	}
+	
+    function updateTips( t ) {
+      tips
+        .text( t )
+        .addClass( "ui-state-highlight" );
+      setTimeout(function() {
+        tips.removeClass( "ui-state-highlight", 1500 );
+      }, 500 );
+    }
+ 
+    function checkLength( o, n, min, max ) {
+      if ( o.val().length > max || o.val().length < min ) {
+        o.addClass( "ui-state-error" );
+        if(min==max){
+        	updateTips( "Length of " + n + " must be " + min + "." );
+        }else{
+        	updateTips( "Length of " + n + " must be between " +
+          		min + " and " + max + "." );
+        }
+        return false;
+      } else {
+        return true;
+      }
+    }
+ 
+    function checkRegexp( o, regexp, n ) {
+      if ( !( regexp.test( o.val() ) ) ) {
+        o.addClass( "ui-state-error" );
+        updateTips( n );
+        return false;
+      } else {
+        return true;
+      }
+    }
+ 
+    function addUser() {
+      var valid = true;
+      allFields.removeClass( "ui-state-error" );
+ 
+      valid = valid && checkLength( name, "Username", 3, 16 );
+      valid = valid && checkLength( email, "Email", 6, 80 );
+      valid = valid && checkLength( password, "Password", 5, 16 );
+      valid = valid && checkLength( phone, "Contact Number", 10, 10);
+ 
+      valid = valid && checkRegexp( name, /^[a-z]([0-9a-z_\s])+$/i, "Username may consist of a-z, 0-9, underscores, spaces and must begin with a letter." );
+      valid = valid && checkRegexp( email, emailRegex, "eg. ui@jquery.com" );
+      valid = valid && checkRegexp( password, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
+      valid = valid && checkRegexp( phone, /^(\+?1-?)?(\([2-9]\d{2}\)|[2-9]\d{2})-?[2-9]\d{2}-?\d{4}$/, "Please provide valid contact number.");
+      /* valid = valid && checkRegexp(phone, /^(?(\d{3}))?[- ]?(\d{3})[- ]?(\d{4})$/, "Please provide valid contact number."); */
+      
+ 
+      if ( valid ) {
+    	  alert("Registration Successful!")
+        /* $( "#users tbody" ).append( "<tr>" +
+          "<td>" + name.val() + "</td>" +
+          "<td>" + email.val() + "</td>" +
+          "<td>" + password.val() + "</td>" +
+        "</tr>" );
+        dialog.dialog( "close" ); */
+      }
+      return valid;
+    }
+ 
+    dialog = $( "#signupWindow" ).dialog({
+      autoOpen: false,
+      height: 330,
+      width: 450,
+      modal: true,
+      resizable: false,
+      draggable: false,
+      buttons: {
+        "Create an account": addUser,
+        Cancel: function() {
+          dialog.dialog( "close" );
+        }
+      },
+      close: function() {
+        form[ 0 ].reset();
+        allFields.removeClass( "ui-state-error" );
+      }
+    });
+ 
+    form = dialog.find( "form" ).on( "button", function( event ) {
+      event.preventDefault();
+      addUser();
+    });
+ 
+  });
+  </script>
+<!-- Popup related Style and scripts End -->
+<!-- slider -->
+</head>
+<body ng-app="trainingportal">
+    <ng-view></ng-view>
+  <script src="js/lib/angular.min.js"></script>
+  <script src="js/lib/angular-route.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/controllers.js"></script>
+	
+</body>
+</html>
