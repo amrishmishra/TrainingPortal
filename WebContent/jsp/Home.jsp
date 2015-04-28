@@ -497,44 +497,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											</div>
 											<div class="clearfix"> </div>
 										</div>
-										<!-- post -->
-										<div class="post">
-											<h3>Latest Posts</h3>
-											<div class="post-grids">
-												<div class="col-md-4 post-left">
-													<a href="single.html"><img src="../resources/images/p1.jpg" alt="" /></a>
-												</div>
-												<div class="col-md-8 post-right">
-													<h4><a href="single.html">Silicon Valley Shows Signs of Dot-Com Frenzy</a></h4>
-													<p class="comments">August 4 2010, <a href="#">8 Comments</a></p>
-													<p class="text">Lorem ipsum ex vix illud nonummy, novum tation et his. At vix scripta patrioque scribentur...</p>
-												</div>
-												<div class="clearfix"> </div>
-											</div>
-											<div class="post-grids">
-												<div class="col-md-4 post-left">
-													<a href="single.html"><img src="../resources/images/p2.jpg" alt="" /></a>
-												</div>
-												<div class="col-md-8 post-right">
-													<h4><a href="single.html">Silicon Valley Shows Signs of Dot-Com Frenzy</a></h4>
-													<p class="comments">August 4 2010, <a href="#">8 Comments</a></p>
-													<p class="text">Lorem ipsum ex vix illud nonummy, novum tation et his. At vix scripta patrioque scribentur...</p>
-												</div>
-												<div class="clearfix"> </div>
-											</div>
-											<div class="post-grids">
-												<div class="col-md-4 post-left">
-													<a href="single.html"><img src="../resources/images/p3.jpg" alt="" /></a>
-												</div>
-												<div class="col-md-8 post-right">
-													<h4><a href="#">Silicon Valley Shows Signs of Dot-Com Frenzy</a></h4>
-													<p class="comments">August 4 2010, <a href="#">8 Comments</a></p>
-													<p class="text">Lorem ipsum ex vix illud nonummy, novum tation et his. At vix scripta patrioque scribentur...</p>
-												</div>
-												<div class="clearfix"> </div>
-											</div>
-										</div>
-										<!-- //post -->
 									</div>
 									<!-- //banner-bottom-left -->
 									<!-- banner-bottom-right -->
