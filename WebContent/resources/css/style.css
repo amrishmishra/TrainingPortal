@@ -75,12 +75,9 @@ body a {
 	margin:0;
 }
 /*-- bg-banner --*/
-.banner-bg{
-	background:url(../images/strip.png);
-	min-height: 426px;
-}
+
 .banner-bottom-bg{
-	background:url(../images/strip1.png);
+	background:url(../images/strip.png);
 	min-height: 157em;
 }
 /*-- banner --*/
